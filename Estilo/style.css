@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --CorPrincipal: black;
+    --corFundo: #0B0940;
+    --corFundo2: #0540F2;
+    --CorSecundária: white;
+    --cor5: #F2CB05;
+    --cor4: #056CF2;
+    --fundo-gradient: linear-gradient(to bottom, var(--corFundo), var(var(--corFundo2)));
+
+    --fontePrincipal: "Poppins", sans-serif; 
+}
+
+body {
+    margin: 0px;
+    color: white;
+    padding-bottom: 5dvw;
+    background-image: linear-gradient(140deg, var(--corFundo), var(--corFundo2));
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: var(--fontePrincipal);
+}
+
+#cabeçalho-list {
+    text-align: center;
+    font-weight: lighter;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.400);
+    font-size: 1.6dvw;
+}
+#cabeçalho-list > h2 {
+
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.300);
+
+    margin-top: 20px;
+    font-family: var();
+    font-weight: bold;
+    font-size: 1.6dvw;
+    width: 80dvw;
+    padding: 0.8dvw 1.7dvw 0.8dvw 1.7dvw;
+    margin: auto;
+    background-color: var(--cor5);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 20px;
+}
+
+main > #criar-tarefa {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+main > #criar-tarefa > a{
+    font-family: var(--fontePrincipal);
+    font-weight: bold;
+    text-decoration: none;
+
+
+    font-size: 1.2dvw;
+    color: var(--CorSecundária);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.300);
+    background-color: var(--cor5);
+    padding: 6px 15px;
+    background-color: var();
+
+    border-radius: 5px;
+
+
+
+}
+
+main {
+    background-color: rgb(245, 245, 245);
+    margin: auto;
+    width: 80dvw;
+    padding: 1.7dvw;
+    box-shadow: 4px 2px 6px rgba(0, 0, 0, 0.300);
+    color: black;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 5px;
+    min-height: 10dvh;
+}
+
+
+
+.tarefas{
+    background-color: var(--CorSecundária);
+    padding: 10px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.100);
+    border-radius: 5px 20px;
+}
+.tarefas > h1 {
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.tarefas > p {
+    font-weight: normal;
+    font-size: 17px;
+    text-indent: 10px;
+    margin-top: -2px;
+    text-align: justify;
+}
+.tarefas > h2 {
+    font-weight: 600;
+    font-size: 16px;
+    text-indent: 10px;
+}
+
+.dias-tarefa {
+    display: inline-block;
+    font-weight:600;
+    color: var(--cor5);
+    font-size: 22px;
+    border-bottom: 2px solid;
+    padding-bottom: 2px;
+}
