@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Estilo/style.css">
+    <link rel="stylesheet" href="Estilo/addtarefa.css">
     <title>Adicionando Tarefa</title>
 </head>
 <body>
-    
+
+    <h2 id="head-h2">Criando Tarefa</h2>
+        <form id="formulario-task">
+            <input class="inputs-tasks" type="text" placeholder="Titulo da Tarefa" id="titulo-task">
+            <textarea class="inputs-tasks"  id="Descrição-task" placeholder="Descrição da Tarefa"></textarea>
+            <input class="inputs-tasks"  type="date" id="data-task" required>
+            <button class="botão" id="Adicionar-formulario-task" type="submit">Adicionar Tarefa</button>
+            <button class="botão" id="Cancelar-formulario-task" type="button">Cancelar</button>
+            <a href="ListaDeTarefas.html" id="ancora-voltar-lista"></a>
+        </form>
+
+        <script src="Javascript/list.js"></script>
+
 </body>
 </html>

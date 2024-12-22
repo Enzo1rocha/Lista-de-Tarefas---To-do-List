@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --CorPrincipal: black;
+    --corFundo: #0B0940;
+    --corFundo2: #0540F2;
+    --CorSecundária: white;
+    --cor5: #F2CB05;
+    --cor4: #056CF2;
+    --fundo-gradient: linear-gradient(to bottom, var(--corFundo), var(var(--corFundo2)));
+
+    --fontePrincipal: Arial, sans-serif; 
+}
+
+html {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: linear-gradient(140deg, var(--corFundo), var(--corFundo2));
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: var(--fontePrincipal);
+    color: white;
+    margin: 0px;
+}
+
+#formulario-task {
+    margin: auto;
+    width: 40dvw;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    
+    display: grid;
+    gap: 15px;
+
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 5px;
+}
+
+.inputs-tasks  {
+    font-size: 20px;
+    font-weight: normal;
+    padding: 15px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.400);
+}
+
+
+#head-h2 {
+    font-size: 30px;
+    margin: 40px auto auto auto;
+    background-color: var(--cor5);
+    width: 40dvw;
+    padding: 15px 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 20px;
+
+    text-align: center;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.400);
+}
+
+.botão {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    margin: auto;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 0px
+}
+
+
+#Adicionar-formulario-task {
+    background-color: var(--cor4);
+}
+
+#Cancelar-formulario-task {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.300);
+}
+
+#data-task {
+    color: gray;
+}
+
+#ancora-voltar-lista {
+    display: none;
+}
