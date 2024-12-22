@@ -4,8 +4,8 @@
 
 :root {
     --CorPrincipal: black;
-    --corFundo: #0B0940;
-    --corFundo2: #0540F2;
+    --corFundo: hsl(240, 69%, 40%);
+    --corFundo2: hsl(219, 100%, 60%);
     --CorSecundária: white;
     --cor5: #F2CB05;
     --cor4: #056CF2;

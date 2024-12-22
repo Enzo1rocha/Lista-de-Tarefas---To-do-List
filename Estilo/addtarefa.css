@@ -4,8 +4,8 @@
 
 :root {
     --CorPrincipal: black;
-    --corFundo: #0B0940;
-    --corFundo2: #0540F2;
+    --corFundo: hsl(240, 69%, 40%);
+    --corFundo2: hsl(219, 100%, 60%);
     --CorSecundária: white;
     --cor5: #F2CB05;
     --cor4: #056CF2;
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-    background-image: linear-gradient(140deg, var(--corFundo), var(--corFundo2));
+    background-image: linear-gradient(140deg, var(--corFundo) 30%, var(--corFundo2));
     background-size: cover;
     background-repeat: no-repeat;
     font-family: var(--fontePrincipal);
@@ -32,7 +32,7 @@ body {
 #formulario-task {
     margin: auto;
     width: 40dvw;
-    padding: 20px;
+    padding: 30px 20px 50px 20px;
     background-color: white;
     color: black;
     font-weight: 600;
@@ -47,9 +47,11 @@ body {
 .inputs-tasks  {
     font-size: 20px;
     font-weight: normal;
-    padding: 15px;
+    padding: 20px;
     border-radius: 10px;
     border: none;
+    width: 80%;
+    margin: auto;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.400);
 }
 
@@ -72,15 +74,16 @@ body {
     font-weight: 600;
     font-size: 18px;
     margin: auto;
-    width: 100%;
+    width: 34.5dvw;
     padding: 15px;
     border-radius: 10px;
-    border: 0px
+    border: 0px;
+    cursor: pointer;
 }
 
 
 #Adicionar-formulario-task {
-    background-color: var(--cor4);
+    background-image: linear-gradient(140deg, var(--corFundo) 10%, var(--corFundo2) 90%);
 }
 
 #Cancelar-formulario-task {
