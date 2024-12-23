@@ -7,6 +7,7 @@
     --corFundo: hsl(240, 69%, 40%);
     --corFundo2: hsl(219, 100%, 60%);
     --CorSecundária: white;
+    --cor6: hsl(50, 100%, 58%);
     --cor5: #F2CB05;
     --cor4: #056CF2;
     --fundo-gradient: linear-gradient(to bottom, var(--corFundo), var(var(--corFundo2)));
@@ -37,13 +38,15 @@ body {
     margin-top: 20px;
     font-family: var();
     font-weight: bold;
-    font-size: 1.6dvw;
+    font-size: 2dvw;
     width: 80dvw;
-    padding: 0.8dvw 1.7dvw 0.8dvw 1.7dvw;
+    padding: 1.4dvw 1.7dvw 1.4dvw 1.7dvw;
     margin: auto;
-    background-color: var(--cor5);
+    background-image: linear-gradient(140deg, var(--cor5), var(--cor6) );
     border-top-left-radius: 5px;
     border-top-right-radius: 20px;
+
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.300);
 }
 
 main > #criar-tarefa {
@@ -113,10 +116,10 @@ main {
 }
 
 .dias-tarefa {
-    display: inline-block;
     font-weight:600;
-    color: var(--cor5);
-    font-size: 22px;
-    border-bottom: 2px solid;
+    color: var(--cor6);
+    font-size: 26px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.300);
+    border-bottom: 4px solid;
     padding-bottom: 2px;
 }
