@@ -1,6 +1,7 @@
 const Data_Atual = new Date();
 const cancelarForm = window.document.getElementById('Cancelar-formulario-task')
 const aceitarForm = window.document.getElementById('Adicionar-formulario-task')
+const formularioDADOS = window.document.getElementById('formulario-task')
 const voltar = window.document.getElementById('ancora-voltar-lista')
 const Titulo_input = window.document.getElementById('titulo-task')
 const Desc_input = window.document.getElementById('Descrição-task')
@@ -11,16 +12,25 @@ const Nome_dia = Dias_da_semana[Data_Atual.getDay()];
 const Dia_do_mes = Data_Atual.getDate();
 const Nome_mes = Meses_do_ano[Data_Atual.getMonth()];
 
-renderizar_tarefas()
+document.addEventListener('DOMContentLoaded', function() {
+    const paginaAtual = window.location.pathname;
+    if (paginaAtual.includes('ListaDeTarefas.html')) {
+        renderizar_tarefas()
+    }
+})
+
+
+formularioDADOS.addEventListener('submit', function(event) {
+    event.preventDefault();
+    criar_nova_tarefa()
+    window.location.href = 'ListaDeTarefas.html'
+})
 
 cancelarForm.addEventListener('click', () => {
     window.location.href = 'ListaDeTarefas.html'
 })
 
 
-aceitarForm.addEventListener('submit', () => {
-    criar_nova_tarefa()
-})
 
 function criar_nova_tarefa() {
     let dia = `${Dia_do_mes}-${(Data_Atual.getMonth())+1}-${Data_Atual.getFullYear()}`
@@ -33,14 +43,21 @@ function criar_nova_tarefa() {
 
     let tarefas_salvas = JSON.parse(localStorage.getItem('Tarefas'))
 
-    if (dia in tarefas_salvas) {
-        tarefas_salvas[dia].unshift(tarefa_para_ser_add)
+    if (tarefas_salvas) {
+        if (dia in tarefas_salvas) {
+            tarefas_salvas[dia].push(tarefa_para_ser_add)
+        } else {
+            tarefas_salvas[dia] = [tarefa_para_ser_add]
+        }
     } else {
+        tarefas_salvas = {}
         tarefas_salvas[dia] = [tarefa_para_ser_add]
     }
 
+
     localStorage.removeItem('Tarefas')
     localStorage.setItem('Tarefas', JSON.stringify(tarefas_salvas))
+    cancelarForm.click()
 }
 
 function renderizar_tarefas() {
