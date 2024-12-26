@@ -31,37 +31,38 @@ body {
 
 #formulario-task {
     margin: auto;
-    width: 40dvw;
-    padding: 30px 20px 50px 20px;
+    width: 620px;
+    padding: 30px 30px 40px 30px;
     background-color: white;
     color: black;
     font-weight: 600;
     
     display: grid;
-    gap: 15px;
+    gap: 20px;
 
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 5px;
 }
 
 .inputs-tasks  {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: normal;
     padding: 20px;
     border-radius: 10px;
     border: none;
-    width: 80%;
+    width: 90%;
     margin: auto;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.400);
 }
 
 
 #head-h2 {
-    font-size: 30px;
+    font-size: 45px;
     margin: 40px auto auto auto;
     background-color: var(--cor5);
-    width: 40dvw;
-    padding: 15px 20px;
+    width: 620px;
+    padding: 20px 30px;
+    margin-top: 40px;
     border-top-left-radius: 5px;
     border-top-right-radius: 20px;
 
@@ -72,9 +73,9 @@ body {
 .botão {
     color: white;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
     margin: auto;
-    width: 34.5dvw;
+    width: 600px;
     padding: 15px;
     border-radius: 10px;
     border: 0px;
@@ -98,4 +99,91 @@ body {
 
 #ancora-voltar-lista {
     display: none;
+}
+
+@media (max-width: 1024px) {
+    
+    #formulario-task {
+        width: 620px;
+        padding: 30px 30px 40px 30px;
+        gap: 20px;
+    }
+    
+    .inputs-tasks  {
+        font-size: 22px;
+        font-weight: normal;
+        width: 90%;
+    }
+    
+    
+    #head-h2 {
+        font-size: 45px;
+        width: 620px;
+        padding: 20px 30px;
+        margin-top: 70px;
+    }
+    
+    .botão {
+        font-size: 22px;
+        margin: auto;
+        width: 600px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 760px) {
+
+    #formulario-task {
+        width: 380px;
+        padding: 30px 30px 40px 30px;
+        gap: 20px;
+    }
+    
+    .inputs-tasks  {
+        font-size: 20px;
+        font-weight: normal;
+        width: 90%;
+    }
+    
+    
+    #head-h2 {
+        font-size: 35px;
+        width: 380px;
+        padding: 20px 30px;
+        margin-top: 70px;
+    }
+    
+    .botão {
+        font-size: 19px;
+        margin: auto;
+        width: 380px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #formulario-task {
+        width: 270px;
+        padding: 30px 20px 40px 20px;
+        gap: 20px;
+    }
+    
+    .inputs-tasks  {
+        font-size: 19px;
+        padding: 18px;
+        width: 80%;
+    }
+    
+    
+    #head-h2 {
+        font-size: 30px;
+        margin: 70px auto auto auto;
+        width: 270px;
+        padding: 20px 20px;
+    }
+    
+    .botão {
+        font-size: 18px;
+        width: 250px;
+    }
 }

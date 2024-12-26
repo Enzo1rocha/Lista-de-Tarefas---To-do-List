@@ -12,6 +12,7 @@ const Nome_dia = Dias_da_semana[Data_Atual.getDay()];
 const Dia_do_mes = Data_Atual.getDate();
 const Nome_mes = Meses_do_ano[Data_Atual.getMonth()];
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const paginaAtual = window.location.pathname;
     if (paginaAtual.includes('ListaDeTarefas.html')) {
@@ -36,7 +37,7 @@ function criar_nova_tarefa() {
     let dia = `${Dia_do_mes}-${(Data_Atual.getMonth())+1}-${Data_Atual.getFullYear()}`
 
     let tarefa_para_ser_add = {
-        titulo: String(Titulo_input.value),
+        titulo: String(Titulo_input.value).toUpperCase(), 
         descricao: String(Desc_input.value),
         data: String(Data_input.value)
     }
