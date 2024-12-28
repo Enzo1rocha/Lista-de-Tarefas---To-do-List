@@ -15,6 +15,34 @@
     --fontePrincipal: "Poppins", sans-serif; 
 }
 
+.button_i {
+    background-color: white;
+    border: none;
+}
+
+.alterar_titulo {
+    font-size: 25px;
+    width: 300px;
+    padding: 7px 10px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.alterar_titulo:focus {
+    outline: none;
+}
+
+.fa-regular.fa-square-check {
+  font-size: 35px;
+  cursor: pointer;
+}
+
+
+.div_i_alterar {  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body, html {
     height: 100%;
     margin: 0px;
@@ -107,7 +135,7 @@ main {
     font-weight: 600;
 }
 .tarefas > div > i {
-    font-size: 22px;
+    font-size: 25px;
     margin: 0px 5px;
     cursor: pointer;
 }

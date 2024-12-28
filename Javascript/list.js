@@ -1,75 +1,7 @@
-const Data_Atual = new Date();
-const cancelarForm = window.document.getElementById('Cancelar-formulario-task')
-const aceitarForm = window.document.getElementById('Adicionar-formulario-task')
-const formularioDADOS = window.document.getElementById('formulario-task')
-const voltar = window.document.getElementById('ancora-voltar-lista')
-const Titulo_input = window.document.getElementById('titulo-task')
-const Desc_input = window.document.getElementById('Descrição-task')
-const Data_input = window.document.getElementById('data-task')
-const Dias_da_semana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", 'Sexta', 'Sábado'];
-const Meses_do_ano = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-const Nome_dia = Dias_da_semana[Data_Atual.getDay()];
-const Dia_do_mes = Data_Atual.getDate();
-const Nome_mes = Meses_do_ano[Data_Atual.getMonth()];
-
-const lixeira = window.document.getElementsByClassName('fa-regular fa-trash-can')
-
-Array.from(lixeira).forEach(element => {
-    element.addEventListener('click', function (eventu) {
-        if (eventu.target.tagName == 'I') {
-            let div_com_as_informações_da_lixeira_clicada = eventu.target.closest('.tarefas');
-    
-            date_ID = div_com_as_informações_da_lixeira_clicada.dataset.identificadorID
-            date_Data = div_com_as_informações_da_lixeira_clicada.dataset.identificadorDATA
-            console.log(date_ID, date_Data)
-    
-            let tarefas_salvas = JSON.parse(localStorage.getItem('Tarefas') || {})
-    
-            for (const tarefa in tarefas_salvas[date_Data]) {
-                if (Object.prototype.hasOwnProperty.call(tarefas_salvas[date_Data], tarefa)) {
-                    const element = tarefas_salvas[date_Data][tarefa];
-    
-                    if (element.id == date_ID) {
-                        tarefas_salvas[date_Data].splice(tarefa, 1)
-                        localStorage.clear()
-                        localStorage.setItem('Tarefas', JSON.stringify(tarefas_salvas))
-                        div_com_as_informações_da_lixeira_clicada.remove();
-                    }
-                    
-                }
-            }
-    
-            }
-            
-        }
-    )
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const paginaAtual = window.location.pathname;
-    if (paginaAtual.includes('ListaDeTarefas.html')) {
-        renderizar_tarefas()
-    }
-})
-
-
-formularioDADOS.addEventListener('submit', function(event) {
-    event.preventDefault();
-    criar_nova_tarefa()
-    window.location.href = 'ListaDeTarefas.html'
-})
-
-cancelarForm.addEventListener('click', () => {
-    window.location.href = 'ListaDeTarefas.html'
-})
-
-
-
 function criar_nova_tarefa() {
     let dia = String(Data_input.value)
     dia = (dia.split('-')).reverse()
     dia = dia.join('-')
-    
 
     let tarefa_para_ser_add = {
         titulo: String(Titulo_input.value)
@@ -136,12 +68,84 @@ function renderizar_tarefas() {
 
                     //html
 
-                    div_class_tarefas.innerHTML = `
-                    <h1>${valores_por_objeto.titulo}</h1>
-                    <div>
-                        <i class="fa-regular fa-pen-to-square"></i> 
-                        <i class="fa-regular fa-trash-can"></i>
-                    </div>`  
+                    const h1Tittle = document.createElement('h1')
+                    h1Tittle.textContent = valores_por_objeto.titulo
+
+                    let div_pai_lixeiras_filha_div_class = document.createElement('div')
+                    let editar = document.createElement('i');
+                    editar.className = 'fa-regular fa-pen-to-square'
+
+                    editar.addEventListener('click', function() {
+                        const div_editar = (editar.parentNode).parentNode
+                        console.log(div_editar);
+                        
+                        let titulo_da_tarefa_alteração = div_editar.querySelector('h1');
+                        let div_i_alterar = document.createElement('form')
+                        div_i_alterar.className = 'div_i_alterar'
+
+                        let input_altera = document.createElement('input')
+                        input_altera.type = 'text'
+                        input_altera.style.border = 'none'
+                        input_altera.placeholder = 'Alterar Titulo'
+                        input_altera.className = 'alterar_titulo'
+                        input_altera.required = true;
+
+                        let button_i = document.createElement('button')
+                        button_i.className = 'button_i'
+                        button_i.type = 'button'
+
+                        input_altera.addEventListener('keydown', (event) => {
+                            if (event.key == 'Enter') {
+                                confirm_I.click()
+                            }
+                        })
+
+                        let i_check = document.createElement('i')
+                        i_check.className = 'fa-regular fa-square-check'
+
+                        titulo_da_tarefa_alteração.innerHTML = ''
+                        button_i.appendChild(i_check)
+
+                        div_i_alterar.appendChild(input_altera)
+                        div_i_alterar.appendChild(button_i)
+                        titulo_da_tarefa_alteração.appendChild(div_i_alterar)
+
+                        
+                        let confirm_I = titulo_da_tarefa_alteração.querySelector("button")
+                        confirm_I.addEventListener('click', () => {
+                            let new_titulo = titulo_da_tarefa_alteração.querySelector('input')
+                            for (let i = 0; i < tarefas_salvas[div_editar.dataset.identificadorDATA].length; i++) {
+                                const element = tarefas_salvas[div_editar.dataset.identificadorDATA][i];
+                                if (element.id == div_editar.dataset.identificadorID) {
+                                    tarefas_salvas[div_editar.dataset.identificadorDATA][i].titulo = String(new_titulo.value)
+                                    localStorage.setItem('Tarefas', JSON.stringify(tarefas_salvas))
+                                    window.location.reload()
+                                }
+                            }                            
+                        })
+                    })
+
+                    let lixeira = document.createElement('i');
+                    lixeira.className = 'fa-regular fa-trash-can'
+
+                    lixeira.addEventListener('click', function() {
+                        let div = (lixeira.parentNode).parentNode;
+                        let index = tarefas_salvas[div.dataset.identificadorDATA].findIndex((tarefa) => tarefa.id == div.dataset.identificadorID)
+                        tarefas_salvas[div.dataset.identificadorDATA].splice(index,1);
+                        if (tarefas_salvas[div.dataset.identificadorDATA].length == 0) {
+                            delete tarefas_salvas[div.dataset.identificadorDATA];
+                            div.parentNode.remove()
+                        } else {
+                            div.remove()
+                        }
+                        localStorage.setItem('Tarefas', JSON.stringify(tarefas_salvas))
+                    })
+
+                    div_pai_lixeiras_filha_div_class.appendChild(editar)
+                    div_pai_lixeiras_filha_div_class.appendChild(lixeira)
+
+                    div_class_tarefas.appendChild(h1Tittle)
+                    div_class_tarefas.appendChild(div_pai_lixeiras_filha_div_class)
 
                     //html
 
@@ -153,3 +157,39 @@ function renderizar_tarefas() {
 
 
 }
+
+const Data_Atual = new Date();
+const cancelarForm = window.document.getElementById('Cancelar-formulario-task')
+const aceitarForm = window.document.getElementById('Adicionar-formulario-task')
+const formularioDADOS = window.document.getElementById('formulario-task')
+const voltar = window.document.getElementById('ancora-voltar-lista')
+const Titulo_input = window.document.getElementById('titulo-task')
+const Desc_input = window.document.getElementById('Descrição-task')
+const Data_input = window.document.getElementById('data-task')
+const Dias_da_semana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", 'Sexta', 'Sábado'];
+const Meses_do_ano = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+const Nome_dia = Dias_da_semana[Data_Atual.getDay()];
+const Dia_do_mes = Data_Atual.getDate();
+const Nome_mes = Meses_do_ano[Data_Atual.getMonth()];
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const paginaAtual = window.location.pathname;
+    if (paginaAtual.includes('ListaDeTarefas.html')) {
+        renderizar_tarefas()
+    }
+})
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname.includes('AdicionarTarefa.html')) {
+        formularioDADOS.addEventListener('submit', function(event) {
+            event.preventDefault();
+            criar_nova_tarefa()
+            window.location.href = 'ListaDeTarefas.html'
+        })
+        
+        cancelarForm.addEventListener('click', () => {
+            window.location.href = 'ListaDeTarefas.html'
+        })    
+    }
+})
