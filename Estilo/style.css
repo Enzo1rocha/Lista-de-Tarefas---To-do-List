@@ -114,7 +114,7 @@ main {
 
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 5px;
-    min-height: 350px;
+    min-height: 150px;
 }
 
 
@@ -206,7 +206,7 @@ main {
     
     main {
         width: 420px;
-        min-height: 400px;
+        min-height: 200px;
     }
     
     
@@ -280,6 +280,7 @@ main {
     main {
         width: 300px;
         padding: 20px 26px;
+        min-height: 200px;
     }
     
     
