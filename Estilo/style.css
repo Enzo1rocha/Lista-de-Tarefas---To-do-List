@@ -62,7 +62,7 @@ body {
     text-align: center;
     font-weight: lighter;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.400);
-    font-size: 1.6dvw;
+    font-size: 27px;
 }
 #cabeçalho-list > h2 {
 
@@ -71,9 +71,9 @@ body {
     margin-top: 20px;
     font-family: var();
     font-weight: bold;
-    font-size: 2dvw;
+    font-size: 35px;
     width: 700px;
-    padding: 1.4dvw 1.7dvw 1.4dvw 1.7dvw;
+    padding: 22px 26px 22px 26px;
     margin: auto;
     background-image: linear-gradient(140deg, var(--cor5), var(--cor6) );
     border-top-left-radius: 5px;
@@ -94,27 +94,27 @@ main > #criar-tarefa > a{
     text-decoration: none;
 
 
-    font-size: 1.2dvw;
+    font-size: 22px;
     color: var(--CorSecundária);
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.300);
     background-color: var(--cor5);
-    padding: 6px 15px;
+    padding: 10px 15px;
     background-color: var();
 
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 main {
     background-color: rgb(245, 245, 245);
     margin: auto;
     width: 700px;
-    padding: 1.7dvw;
+    padding: 26px;
     box-shadow: 4px 2px 6px rgba(0, 0, 0, 0.300);
     color: black;
 
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 5px;
-    min-height: 10dvh;
+    min-height: 350px;
 }
 
 
@@ -147,4 +147,165 @@ main {
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.300);
     border-bottom: 4px solid;
     padding-bottom: 2px;
+}
+
+@media (max-width: 760px) {
+
+    .button_i {
+        background-color: white;
+        border: none;
+    }
+    
+    .alterar_titulo {
+        font-size: 25px;
+        width: 223px;
+        padding: 7px 10px;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+    .alterar_titulo:focus {
+        outline: none;
+    }
+    
+    .fa-regular.fa-square-check {
+      font-size: 26px;
+      cursor: pointer;
+    }
+    
+    #cabeçalho-list {
+        font-size: 25px;
+    }
+    #cabeçalho-list > h2 {
+    
+        text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.300);
+    
+        margin-top: 40px;
+        font-family: var();
+        font-weight: bold;
+        font-size: 35px;
+        width: 420px;
+        padding: 20px 26px 20px 26px;
+        margin: auto;
+        background-image: linear-gradient(140deg, var(--cor5), var(--cor6) );
+        border-top-left-radius: 5px;
+        border-top-right-radius: 20px;
+    
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.300);
+    }
+    
+    main > #criar-tarefa {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+    
+    main > #criar-tarefa > a{
+        font-size: 20px;
+        border-radius: 10px;
+    }
+    
+    main {
+        width: 420px;
+        min-height: 400px;
+    }
+    
+    
+    
+    .tarefas{
+        background-color: var(--CorSecundária);
+        padding: 0px 40px;
+        font-weight: normal;
+        margin-bottom: 20px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.100);
+        border-radius: 5px 20px;
+    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .tarefas > h1 {
+        font-weight: 600;
+        text-align: justify;
+        width: 250px;
+    }
+    .tarefas > div > i {
+        font-size: 25px;
+        margin: 0px 5px;
+        cursor: pointer;
+    }
+    
+    .dias-tarefa {
+        font-weight:600;
+        color: var(--cor6);
+        font-size: 26px;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.300);
+        border-bottom: 4px solid;
+        padding-bottom: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .alterar_titulo {
+        font-size: 20px;
+        width: 135px;
+        padding: 7px 0px;
+    }
+    
+    .fa-regular.fa-square-check {
+      font-size: 26px;
+    }
+    
+    #cabeçalho-list {
+        font-size: 20.5px;
+    }
+    #cabeçalho-list > h2 {
+        margin-top: 22px;
+        font-size: 28px;
+        width: 300px;
+        padding: 18px 26px;
+    }
+    
+    main > #criar-tarefa {
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 40px;
+    }
+    
+    main > #criar-tarefa > a{
+        font-size: 20px;
+        padding: 12px 15px;
+    }
+    
+    main {
+        width: 300px;
+        padding: 20px 26px;
+    }
+    
+    
+    
+    .tarefas{
+        padding: 0px 25px;
+        margin-bottom: 10px;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.100);
+        border-radius: 10px;
+    
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tarefas > h1 {
+        width: 170px;
+        font-size: 22px;
+        text-align: justify;
+        padding: 5px 0px;
+        margin-right: 5px;
+    }
+    
+    .dias-tarefa {
+        font-size: 27px;
+        text-align: center;
+    }
+
 }

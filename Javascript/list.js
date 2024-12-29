@@ -35,21 +35,30 @@ function renderizar_tarefas() {
 
     //acessando as tarefas salvas, de um determinado dia
 
-    for (const tarefas_dos_dias in tarefas_salvas) {
-        if (Object.prototype.hasOwnProperty.call(tarefas_salvas, tarefas_dos_dias)) {
-            const objeto_tarefas = tarefas_salvas[tarefas_dos_dias];
+    const datasOrdenadas = Object.keys(tarefas_salvas).sort((a, b) => {
+        const [diaA, mesA, anoA] = a.split('-').map(Number);
+        const [diaB, mesB, anoB] = b.split('-').map(Number);
+        const dataA = new Date(anoA, mesA - 1, diaA);
+        const dataB = new Date(anoB, mesB - 1, diaB);
+        return dataA - dataB; // Ordem crescente
+    }).reverse();
+    
+    for (let i = 0; i < datasOrdenadas.length; i++) {
+        let objeto_tarefas = tarefas_salvas[datasOrdenadas[i]]
 
             let div_tarefas_list = window.document.createElement('div');
             div_tarefas_list.className = 'tarefas-list';
             section_tarefas.appendChild(div_tarefas_list);
 
             //pegando nomes de dias e meses
-            let dataObject = tarefas_dos_dias.split('-')
-
+            let [dia, mes, ano] = datasOrdenadas[i].split('-').map(Number)
+            let dataObject =  new Date(ano, mes-1, dia)
+            console.log(dataObject.getDay());
+            
             //html
             let title_dia = document.createElement('h3');
             title_dia.className = 'dias-tarefa';
-            title_dia.textContent = `${Dias_da_semana[Data_Atual.getDay(dataObject[0])]}, ${dataObject[0]} de ${Meses_do_ano[dataObject[1] - 1]}`
+            title_dia.textContent = `${Dias_da_semana[dataObject.getDay()]}, ${dataObject.getDate()} de ${Meses_do_ano[dataObject.getMonth()]}`
             div_tarefas_list.appendChild(title_dia)
             //html
 
@@ -58,13 +67,13 @@ function renderizar_tarefas() {
             for (const key in objeto_tarefas) {
                 if (Object.prototype.hasOwnProperty.call(objeto_tarefas, key)) {
 
-                    const valores_por_objeto = objeto_tarefas[key];
+                    let valores_por_objeto = objeto_tarefas[key];
 
 
                     let div_class_tarefas = window.document.createElement('div');
                     div_class_tarefas.className = 'tarefas';
                     div_class_tarefas.dataset.identificadorID = valores_por_objeto.id
-                    div_class_tarefas.dataset.identificadorDATA = tarefas_dos_dias
+                    div_class_tarefas.dataset.identificadorDATA = datasOrdenadas[i]
 
                     //html
 
@@ -154,9 +163,6 @@ function renderizar_tarefas() {
             }
         }
     }
-
-
-}
 
 const Data_Atual = new Date();
 const cancelarForm = window.document.getElementById('Cancelar-formulario-task')
