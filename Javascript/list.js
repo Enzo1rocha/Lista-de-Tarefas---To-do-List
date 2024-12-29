@@ -181,7 +181,7 @@ const Nome_mes = Meses_do_ano[Data_Atual.getMonth()];
 
 document.addEventListener('DOMContentLoaded', function() {
     const paginaAtual = window.location.pathname;
-    if (paginaAtual.includes('ListaDeTarefas.html')) {
+    if (paginaAtual.includes('index.html')) {
         renderizar_tarefas()
     }
 })
@@ -191,11 +191,11 @@ document.addEventListener('DOMContentLoaded', function() {
         formularioDADOS.addEventListener('submit', function(event) {
             event.preventDefault();
             criar_nova_tarefa()
-            window.location.href = 'ListaDeTarefas.html'
+            window.location.href = 'index.html'
         })
         
         cancelarForm.addEventListener('click', () => {
-            window.location.href = 'ListaDeTarefas.html'
+            window.location.href = 'index.html'
         })    
     }
 })
